@@ -6,6 +6,12 @@ import { data } from "../data/data";
 
 export function getAllAverageTemperatures(data) {
   // Your code goes here...
+  const planets = data.planets;
+  var planetAvgTemps = [];
+  for (let index = 0; index < planets.length; index++) {
+    planetAvgTemps.push(planets[index].avgTemp)
+  }
+  return planetAvgTemps;
 }
 
 
