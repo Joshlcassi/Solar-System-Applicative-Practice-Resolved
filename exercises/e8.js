@@ -6,6 +6,15 @@ import { data } from "../data/data";
 
 export function findPlanetNameByMoon(data, moonName) {
   // Your code goes here...
+  const planets = data.planets;
+  var hasMoons = planets.filter(function(planet) {
+    return planet.hasOwnProperty('moons');
+  }).filter(function (planet) {
+    return planet.moons == moonName;
+  });
+
+  return hasMoons;
+  
 }
 
 
@@ -14,3 +23,18 @@ export function findPlanetNameByMoon(data, moonName) {
 // Once you're finished run the test with "npm run test-8"
 // If the test has all tests passed, switch to the next exercise file
 // If any of the tests fails, refactor the code and run the test command after you've fixed the function
+
+/*
+var findPlanet = planets.find((planets) => planets.moons == moonName);
+  
+
+var hasMoons = planets.filter(function(planet) {
+    return planet.hasOwnProperty('moons');
+  }).find(function (planet) {
+    return planet.moons == moonName;
+  });
+
+  return hasMoons;
+
+
+return findPlanet; */
