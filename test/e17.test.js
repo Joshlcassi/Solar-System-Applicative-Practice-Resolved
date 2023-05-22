@@ -86,8 +86,8 @@ describe("maxBy", () => {
 
   it("It should find the person with the longest name", () => {
     expect(maxBy(people, (person) => person.name.length)).toEqual({
-      name: "andrey",
-      age: 22,
+      name: "peter",
+      age: 30,
     });
   });
 

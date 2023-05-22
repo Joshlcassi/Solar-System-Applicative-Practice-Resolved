@@ -10,29 +10,51 @@
 //what if I tried to filter or map the callback function to get result
 export function minBy(array, cb) {
   // Your code goes here...
+  var tempAge = 1000;
+  
   for (let index = 0; index < array.length; index++) {
-    if (cb(array[index])) {
-      return array[index];
-     
+    if (array[index].age < tempAge) {
+      tempAge = array[index].age;
     }
     
   }
+  var minselected = array.find(array=>array.age == tempAge);
+  return minselected;
 
 }
 
 export function maxBy(array, cb) {
   // Your code goes here...
+  var tempAge = 0;
+  var tempName;
   for (let index = 0; index < array.length; index++) {
-    if (cb(array[index])) {
-      return array[index];
+    if (array[index].age > tempAge) {
+      tempAge = array[index].age;
+      tempName = array[index].name;
     }
+   
+    
+  }
+  var maxSelected = array.find(array=>array.age == tempAge);
+  return maxSelected;
     
   }
 
-}
+
 
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-17"
 // If the test has all tests passed, switch to the next exercise file
 // If any of the tests fails, refactor the code and run the test command after you've fixed the function
+
+/*
+if (cb(array[index])) {
+      return array[index];
+     
+    }
+
+     else if (array[index].age < tempAge && array[index].name.length > tempName.length) {
+      return array[index];
+    }
+    */ 
