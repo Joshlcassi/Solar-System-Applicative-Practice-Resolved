@@ -8,10 +8,12 @@ export function findPlanetNameByMoon(data, moonName) {
   // Your code goes here...
   const planets = data.planets;
   var hasMoons = planets.filter(function(planet) {
-    return planet.hasOwnProperty('moons');
-  }).find(planets=> planets.moons == moonName);
+    return (planet.hasOwnProperty('moons') && planet.moons.includes(moonName));
+  }).reduce((acc,planet) =>{
+    return planet.name
+  },0);
 
-  return hasMoons;
+ return hasMoons;
   
 }
 
@@ -22,17 +24,5 @@ export function findPlanetNameByMoon(data, moonName) {
 // If the test has all tests passed, switch to the next exercise file
 // If any of the tests fails, refactor the code and run the test command after you've fixed the function
 
-/*
-var findPlanet = planets.find((planets) => planets.moons == moonName);
-  
-
-var hasMoons = planets.filter(function(planet) {
-    return planet.hasOwnProperty('moons');
-  }).find(function (planet) {
-    return planet.moons == moonName;
-  });
-
-  return hasMoons;
 
 
-return findPlanet; */
