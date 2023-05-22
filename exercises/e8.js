@@ -9,9 +9,7 @@ export function findPlanetNameByMoon(data, moonName) {
   const planets = data.planets;
   var hasMoons = planets.filter(function(planet) {
     return planet.hasOwnProperty('moons');
-  }).filter(function (planet) {
-    return planet.moons == moonName;
-  });
+  }).find(planets=> planets.moons == moonName);
 
   return hasMoons;
   

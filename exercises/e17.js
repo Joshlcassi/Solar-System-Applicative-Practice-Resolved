@@ -7,14 +7,27 @@
  * * minBy(): Return the element where the callback function on that element yields the lowest value
  * * maxBy(): Return the element where the callback function on that element yields the highest value
  */
-
+//what if I tried to filter or map the callback function to get result
 export function minBy(array, cb) {
   // Your code goes here...
+  for (let index = 0; index < array.length; index++) {
+    if (cb(array[index])) {
+      return array[index];
+     
+    }
+    
+  }
 
 }
 
 export function maxBy(array, cb) {
   // Your code goes here...
+  for (let index = 0; index < array.length; index++) {
+    if (cb(array[index])) {
+      return array[index];
+    }
+    
+  }
 
 }
 
