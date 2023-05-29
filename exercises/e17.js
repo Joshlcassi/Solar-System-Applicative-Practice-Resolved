@@ -10,7 +10,8 @@
 //what if I tried to filter or map the callback function to get result
 export function minBy(array, cb) {
   // Your code goes here...
-  var tempAge = 1000;
+  var tempAge = Infinity;
+  let tempName;
   
   for (let index = 0; index < array.length; index++) {
     if (array[index].age < tempAge) {
@@ -25,18 +26,19 @@ export function minBy(array, cb) {
 
 export function maxBy(array, cb) {
   // Your code goes here...
-  var tempAge = 0;
-  var tempName;
+  let tempAge = -Infinity;
+  let tempName ;
   for (let index = 0; index < array.length; index++) {
-    if (array[index].age > tempAge) {
-      tempAge = array[index].age;
-      tempName = array[index].name;
+    let tempValue = cb(array[index]);
+    if (tempValue > tempAge) {
+      tempAge = tempValue;
+      tempName = array[index];
     }
    
     
   }
-  var maxSelected = array.find(array=>array.age == tempAge);
-  return maxSelected;
+  //var maxSelected = array.find(array=>array.age == tempAge);
+  return tempName;
     
   }
 
@@ -54,7 +56,5 @@ if (cb(array[index])) {
      
     }
 
-     else if (array[index].age < tempAge && array[index].name.length > tempName.length) {
-      return array[index];
-    }
+    
     */ 

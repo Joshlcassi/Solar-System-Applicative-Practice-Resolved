@@ -15,7 +15,6 @@ export function find(array, callback) {
   for (let index = 0; index < array.length; index++) {
     if (callback(array[index])) {
       return array[index];
-      index = array.length + 1;
     }
     
   }
