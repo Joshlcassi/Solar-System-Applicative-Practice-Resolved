@@ -3,32 +3,35 @@
  * Return the year with the greatest number of Asteroids discoveries
  * Return example: 1902
  */
-import { maxBy, minBy } from "./e17";
 
 export function getGreatestDiscoveryYear(data) {
   // Your code goes here...
   // feel free to import your `maxBy` or `minBy` methods from previous lessons
-  
   const asteroids = data.asteroids;
-    let modeYear =  asteroids.reduce((prev, asteroids) => {
-      prev[asteroids.discoveryYear] = ++prev[asteroids.discoveryYear] || 1
-      
-      return prev;
-    },{});
+  const discoveryCount = {};
 
-    let maxYear = null;
-    let maxCount =2;
-
-    for (const year in modeYear) {
-      if (modeYear.hasOwnProperty(year)) {
-        if( modeYear[year] > maxCount ){
-          maxYear = modeYear[year];
-        }
-      }
+  // Count the number of discoveries for each year
+  for (let asteroid of asteroids) {
+    const year = asteroid.discoveryYear;
+    if (discoveryCount[year]) {
+      discoveryCount[year]++;
+    } else {
+      discoveryCount[year] = 1;
     }
+  }
 
-  return parseInt(maxYear)
- 
+  let maxYear = null;
+  let maxCount = 0;
+
+  // Find the year with the maximum count of asteroid discoveries
+  for (let year in discoveryCount) {
+    const count = discoveryCount[year];
+    if (count > maxCount) {
+      maxCount = count;
+      maxYear = year;
+    }
+  }
+  return parseInt( maxYear);
 }
 
 // === TEST YOURSELF ===
@@ -36,14 +39,21 @@ export function getGreatestDiscoveryYear(data) {
 // If the test has all tests passed, switch to the next exercise file
 // If any of the tests fails, refactor the code and run the test command after you've fixed the function
 
-/*let modeYear = maxBy(asteroids,(asteroids)=>asteroids.discoveryYear);
-
-  return modeYear.discoveryYear; */
 
   /* const asteroids = data.asteroids;
-  let modeYear = asteroids.reduce((accumulator, asteroid) => {
-    const currCount = accumulator[asteroid.discoveryYear] ?? 0;
-    return {
-      ...accumulator, [asteroid.discoveryYear]: currCount + 1,
-    };
-  }, {});*/
+    let modeYear =  asteroids.reduce((prev, asteroids) => {
+      prev[asteroids.discoveryYear] = ++prev[asteroids.discoveryYear] || 1
+      
+      return prev;
+    },{});
+
+    let maxYear = null;
+    let maxCount = -1;
+
+    for (const year in modeYear) {
+      if (modeYear.hasOwnProperty(year)) {
+        if( modeYear[year] > maxCount ){
+          maxYear = modeYear[year];
+        }
+      }
+    } */
