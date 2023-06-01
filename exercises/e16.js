@@ -12,11 +12,10 @@
 export function find(array, callback) {
   // Your code goes here...
 
-  for (let index = 0; index < array.length; index++) {
+  for (let index in array) {
     if (callback(array[index])) {
       return array[index];
     }
-    
   }
 }
 

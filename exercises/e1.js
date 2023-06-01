@@ -6,12 +6,8 @@ import { data } from "../data/data";
 
 export function getPlanetNames(data) {
   // Your code goes here...
-  const planets = data.planets;
-  var planetNames = planets.map(function (planet) {
-    return planet.name;
-  });
   
-  return planetNames;
+  return data.planets.map((planet) =>  planet.name);
 }
 
 
@@ -20,3 +16,10 @@ export function getPlanetNames(data) {
 // Once you're finished run the test with "npm run test-1"
 // If the test has all tests passed, switch to the next exercise file
 // If any of the tests fails, refactor the code and run the test command after you've fixed the function
+
+/* const planets = data.planets;
+  let planetNames = planets.map(function (planet) {
+    return planet.name;
+  });
+  
+  return planetNames; */

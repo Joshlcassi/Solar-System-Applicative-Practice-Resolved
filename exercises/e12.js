@@ -6,16 +6,8 @@ import { data } from "../data/data";
 
 export function allPlanetsMoonsCount(data) {
   // Your code goes here...
-  const planets = data.planets;
-
-  const hasMoons = planets.filter(function(planet) {
-    return (planet.hasOwnProperty('moons'));
-    
-  }).reduce((accumulator, planet) => {
-    return accumulator + planet.moons.length;
-  }, 0);
-
-  return hasMoons;
+  return data.planets.filter((planet) => planet.hasOwnProperty('moons'))
+  .reduce((accumulator, planet) => accumulator + planet.moons.length, 0);
 
 }
 

@@ -8,38 +8,30 @@
  * * maxBy(): Return the element where the callback function on that element yields the highest value
  */
 //what if I tried to filter or map the callback function to get result
-export function minBy(array, cb) {
+export function minBy(array) {
   // Your code goes here...
-  var tempAge = Infinity;
-  let tempName;
-  
-  for (let index = 0; index < array.length; index++) {
+  var tempAge = 1000;
+  for (let index in array) {
     if (array[index].age < tempAge) {
       tempAge = array[index].age;
     }
-    
   }
-  var minselected = array.find(array=>array.age == tempAge);
-  return minselected;
-
+  return array.find(array=>array.age == tempAge);
 }
+
 
 export function maxBy(array, cb) {
   // Your code goes here...
-  let tempAge = -Infinity;
+  let tempAge = -1000;
   let tempName ;
-  for (let index = 0; index < array.length; index++) {
+  for (let index in array) {
     let tempValue = cb(array[index]);
     if (tempValue > tempAge) {
       tempAge = tempValue;
       tempName = array[index];
-    }
-   
-    
+    } 
   }
-  //var maxSelected = array.find(array=>array.age == tempAge);
   return tempName;
-    
   }
 
 
